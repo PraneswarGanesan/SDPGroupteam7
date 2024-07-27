@@ -1,0 +1,52 @@
+.contact {
+    background-color: #FFF8F3;
+    padding: 0 20px;
+    padding-top: 20px;
+    min-height: 100vh;
+  }
+  
+  .contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .contact-info {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .contact-heading {
+    font-size: 36px;
+    color: #694F8E;
+    margin-bottom: 20px;
+  }
+  
+  .contact-description {
+    font-size: 18px;
+    color: #433D8B;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    padding-left: 200px;
+    
+  }
+  
+  .contact-form .MuiTextField-root {
+    margin-bottom: 16px; /* Ensures space between fields */
+  }
+  
+  .contact-button {
+    align-self: center;
+  }
+  
