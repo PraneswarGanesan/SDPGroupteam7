@@ -67,23 +67,34 @@
 form {
   display: flex;
   flex-direction: column;
+  padding-left: 15px;
+  font-weight: 700;
 }
 
 .signuplabel{
-
-  font-size: 12px; /* Reduced font size */
-  font-weight: 600; /* Reduced font weight */
- margin-bottom: 15px;
-  margin-left: 15px;
+  font-weight: bold;
+  font-size: 10px; 
+  font-weight: 700;
+ margin-bottom: 22px;
+ margin-left: 10px;
+  margin-top: 28px;
 }
 
 .signup-input{
   margin-top: 2px;
-  margin-bottom: 10px; /* Increased margin-bottom */
-  height: 20px; /* Adjusted height */
-  width: 300px; /* Adjusted width */
+  margin-bottom: 70px; 
+  height: 9px;
+  width: 300px;
   justify-content: center;
-  margin-left: 15px;
+  margin-left: 20px;
+}
+
+
+.signup-inputlol{
+  height: 50px;
+  width: 300px;
+  justify-content: center;
+  margin-left: 20px;
 }
 
 #button {

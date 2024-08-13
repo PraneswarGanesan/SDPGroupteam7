@@ -1,4 +1,4 @@
-// src/components/dashboards/SidePanel.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';

@@ -1,4 +1,4 @@
-// src/components/dashboards/AdminDashboard/AdminSidePanel.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
@@ -8,14 +8,21 @@ import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 const AdminSidePanel = () => {
   return (
     <Drawer
-      sx={{
+    sx={{
+      width: 240,
+      flexShrink: 0,
+      '& .MuiDrawer-paper': {
         width: 240,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: 240,
-          boxSizing: 'border-box',
-        },
-      }}
+        boxSizing: 'border-box',
+        backgroundColor: '#134B70', 
+      },
+      '& .MuiListItem-root': {
+        color: '#fff', // Text color of the list items
+      },
+      '& .MuiListItemIcon-root': {
+        color: '#fff', // Icon color of the list items
+      },
+    }}
       variant="permanent"
       anchor="left"
     >
@@ -33,10 +40,10 @@ const AdminSidePanel = () => {
           <ListItemIcon><People /></ListItemIcon>
           <ListItemText primary="Manage Users" />
         </ListItem>
-        <ListItem button component={Link} to="/admin-dashboard/category">
+        {/* <ListItem button component={Link} to="/admin-dashboard/category">
           <ListItemIcon><CategoryIcon /></ListItemIcon>
           <ListItemText primary="Category" />
-        </ListItem>
+        </ListItem> */}
         <ListItem button component={Link} to="/admin-dashboard/message">
           <ListItemIcon><MessageIcon /></ListItemIcon>
           <ListItemText primary="Message" />

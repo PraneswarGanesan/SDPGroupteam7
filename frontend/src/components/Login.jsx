@@ -3,30 +3,69 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import illustration from '../assets/illu-1.png';
 import { Typography, TextField, Button, MenuItem } from '@mui/material';
+import axios from 'axios';
 
 const Login = ({ onLogin }) => {
   const [form, setForm] = useState({
-    email: '',
+    username: '',
     password: '',
-    role: '',
   });
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-      const userInfo = { email: form.email, role: form.role };
-      onLogin(userInfo);
-      navigate('/');
-   
-  };
+  
+    try {
+      const response = await axios.post('http://localhost:8080/api/auth/login', {
+        username: form.username,
+        password: form.password,
+      });
+  
+      const { token, user } = response.data;
+  
+      const expirationTime = new Date().getTime() + 5000000;
 
+      localStorage.setItem('username', user.username);
+      localStorage.setItem('expiration', expirationTime);
+      localStorage.setItem('role', user.role);
+      localStorage.setItem('id', user.id);
+      localStorage.setItem('data', JSON.stringify(user));
+      localStorage.setItem('token', token);
+
+      onLogin(user);
+  
+      switch (user.role) {
+        case 'admin':
+          navigate('/admin-dashboard');
+          break;
+        case 'employee':
+          navigate('/employee-dashboard');
+          break;
+        case 'team_lead':
+          navigate('/team-lead-dashboard');
+          break;
+        case 'product_manager':
+          navigate('/product-manager-dashboard');
+          break;
+        default:
+          navigate('/');
+      }
+    } catch (err) {
+      console.error("Login Error:", err);
+      setError('Login failed. Please check your credentials and try again.');
+    }
+  };
+  
+  
+  
   return (
     <div className='Login'>
-      <div className='login-bg'></div> {/* Background Color */}
+      <div className='login-bg'></div> 
       <div className='login'>
         <div className='login-container'>
           <div className='login-img'>
@@ -37,26 +76,12 @@ const Login = ({ onLogin }) => {
               <div className="title">
                 <Typography variant='h4'><b>Login</b></Typography>
               </div>
+              {error && <Typography color="error">{error}</Typography>}
               <form className="form" onSubmit={handleSubmit}>
-                <label>Email</label>
-                <TextField name='email' type='email' variant='outlined' value={form.email} onChange={handleChange} required />
+                <label>Username</label>
+                <TextField name='username' type='text' variant='outlined' value={form.username} onChange={handleChange} required />
                 <label>Password</label>
                 <TextField name='password' type='password' variant='outlined' value={form.password} onChange={handleChange} required />
-                <label>Role</label>
-                <TextField
-                  name="role"
-                  select
-                  variant="outlined"
-                  required
-                  value={form.role}
-                  onChange={handleChange}
-                >
-                  <MenuItem value="admin">Admin</MenuItem>
-                  <MenuItem value="employee">Employee</MenuItem>
-                  <MenuItem value="hr">HR</MenuItem>
-                  <MenuItem value="team_lead">Team Lead</MenuItem>
-                  <MenuItem value="product_manager">Product Manager</MenuItem>
-                </TextField>
                 <Button type="submit" variant="contained" color="primary" fullWidth id="button">Login</Button>
                 <Typography className="message">
                   Don't have an account?{' '}

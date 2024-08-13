@@ -1,4 +1,4 @@
-// src/components/dashboards/EmployeeDashboard/SidePanel.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
@@ -8,14 +8,21 @@ import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 const EmployeeSidePanel = () => {
   return (
     <Drawer
-      sx={{
+    sx={{
+      width:240 ,
+      flexShrink: 0,
+      '& .MuiDrawer-paper': {
         width: 240,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: 240,
-          boxSizing: 'border-box',
-        },
-      }}
+        boxSizing: 'border-box',
+        backgroundColor: '#134B70', 
+      },
+      '& .MuiListItem-root': {
+        color: '#fff', 
+      },
+      '& .MuiListItemIcon-root': {
+        color: '#fff', 
+      },
+    }}
       variant="permanent"
       anchor="left"
     >
@@ -28,14 +35,11 @@ const EmployeeSidePanel = () => {
           <ListItemIcon><AutoAwesomeMosaicIcon /></ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button component={Link} to="/employee-dashboard/message">
+        {/* <ListItem button component={Link} to="/employee-dashboard/message">
           <ListItemIcon><Message /></ListItemIcon>
           <ListItemText primary="Message" />
-        </ListItem>
-        <ListItem button component={Link} to="/employee-dashboard/profile">
-          <ListItemIcon><AccountCircle /></ListItemIcon>
-          <ListItemText primary="Profile" />
-        </ListItem>
+        </ListItem> */}
+        
         <ListItem button component={Link} to="/employee-dashboard/my-shifts">
           <ListItemIcon><Schedule /></ListItemIcon>
           <ListItemText primary="My Shifts" />
@@ -43,6 +47,10 @@ const EmployeeSidePanel = () => {
         <ListItem button component={Link} to="/employee-dashboard/time-off">
           <ListItemIcon><Event /></ListItemIcon>
           <ListItemText primary="Time Off" />
+        </ListItem>
+        <ListItem button component={Link} to="/employee-dashboard/profile">
+          <ListItemIcon><AccountCircle /></ListItemIcon>
+          <ListItemText primary="Profile" />
         </ListItem>
       </List>
       <Divider />

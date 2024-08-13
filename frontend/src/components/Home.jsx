@@ -26,7 +26,8 @@ import '../styles/Home.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Rating from '@mui/material/Rating';
-
+import HomeFeature from './HomeFeature';
+import HomeFeature2 from './HomeFeature2';
 const Home = ({ user, onLogout }) => {
   const navigate = useNavigate();
 
@@ -175,6 +176,7 @@ const Home = ({ user, onLogout }) => {
               <img src={logo12} />
             </div>
           </div>
+          <HomeFeature />
           <div className="review">
             <div className="userreview">
               <div className="reviewtitle">

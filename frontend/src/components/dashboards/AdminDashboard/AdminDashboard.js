@@ -1,4 +1,4 @@
-// src/components/dashboards/AdminDashboard/AdminDashboard.js
+
 import React from 'react';
 import AdminSidePanel from './AdminSidePanel';
 import { Box, CssBaseline } from '@mui/material';

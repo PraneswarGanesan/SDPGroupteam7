@@ -1,21 +1,29 @@
-// src/components/dashboards/TeamLeadDashboard/SidePanel.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
-import { Home, Message, AccountCircle, Work } from '@mui/icons-material';
+import { Home, Message, AccountCircle, Work , Schedule, Event } from '@mui/icons-material';
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 
 const TeamLeadSidePanel = () => {
+  const drawerWidth = 240;
   return (
     <Drawer
-      sx={{
-        width: 240,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: 240,
-          boxSizing: 'border-box',
-        },
-      }}
+    sx={{
+      width: drawerWidth,
+      flexShrink: 0,
+      '& .MuiDrawer-paper': {
+        width: drawerWidth,
+        boxSizing: 'border-box',
+        backgroundColor: '#134B70', 
+      },
+      '& .MuiListItem-root': {
+        color: '#fff', 
+      },
+      '& .MuiListItemIcon-root': {
+        color: '#fff', 
+      },
+    }}
       variant="permanent"
       anchor="left"
     >

@@ -1,4 +1,4 @@
-// src/components/dashboards/TeamLeadDashboard/TeamLeadDashboard.js
+
 import React from 'react';
 import { Box, CssBaseline } from '@mui/material';
 import TeamLeadSidePanel from './TeamLeadSidePanel';
@@ -7,7 +7,6 @@ import Dashboard from './components/DashBoard';
 import ManageTeam from './components/ManageTeam';
 import Profile from './components/Profile';
 import ShiftScheduling from './components/ShiftScheduling';
-
 const TeamLeadDashboard = () => {
   return (
     <Box sx={{ display: 'flex' }}>

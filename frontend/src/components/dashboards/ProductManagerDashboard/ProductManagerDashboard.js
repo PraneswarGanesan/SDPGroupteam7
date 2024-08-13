@@ -1,4 +1,3 @@
-// src/components/dashboards/ProductManagerDashboard/ProductManagerDashboard.js
 import React from 'react';
 import { Box, CssBaseline } from '@mui/material';
 import { Routes, Route, Navigate } from 'react-router-dom';
@@ -7,6 +6,7 @@ import Dashboard from './components/DashBoard';
 import AssignEmployees from './components/AssignEmployees';
 import ViewTeamLeadSchedule from './components/ViewTeamLeadSchedule';
 import CreateProjects from './components/CreateProjects';
+import Profile from './components/Profile';
 
 const ProductManagerDashboard = () => {
   return (
@@ -20,6 +20,7 @@ const ProductManagerDashboard = () => {
           <Route path="assign-employees" element={<AssignEmployees />} />
           <Route path="view-team-lead-schedule" element={<ViewTeamLeadSchedule />} />
           <Route path="create-projects" element={<CreateProjects />} />
+          <Route path="profile" element={<Profile />} />
         </Routes>
       </Box>
     </Box>
